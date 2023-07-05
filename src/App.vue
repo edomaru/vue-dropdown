@@ -1,8 +1,10 @@
 <script>
 import Dropdown from './components/dropdown/Dropdown.vue';
+import DropdownItem from './components/dropdown/DropdownItem.vue';
+import DropdownTrigger from './components/dropdown/DropdownTrigger.vue';
 
 export default {
-  components: { Dropdown }
+  components: { Dropdown, DropdownItem, DropdownTrigger }
 }
 </script>
 
@@ -10,14 +12,14 @@ export default {
   <div class="center">
     <Dropdown>
       <template v-slot:trigger="{ toggleClass, toggle }">
-        <button class="btn btn-secondary dropdown-toggle" :class="toggleClass" @click="toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+        <DropdownTrigger class="btn btn-secondary" :class="toggleClass" @click="toggle" type="button">
           Dropdown button
-        </button>
+        </DropdownTrigger>
       </template>
       <template v-slot:menu="{ toggle }">
-        <li><a class="dropdown-item" href="#" @click.prevent="toggle">Action</a></li>
-        <li><a class="dropdown-item" href="#" @click.prevent="toggle">Another action</a></li>
-        <li><a class="dropdown-item" href="#" @click.prevent="toggle">Something else here</a></li>
+        <DropdownItem href="#" @click.prevent="toggle">Action</DropdownItem>
+        <DropdownItem href="#" @click.prevent="toggle">Another action</DropdownItem>
+        <DropdownItem href="#" @click.prevent="toggle">Something else here</DropdownItem>
       </template>
     </Dropdown>
   </div>
