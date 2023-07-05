@@ -9,15 +9,15 @@ export default {
 <template>
   <div class="center">
     <Dropdown>
-      <template v-slot:trigger>
-        <button class="btn btn-secondary dropdown-toggle show" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+      <template v-slot:trigger="{ toggleClass, toggle }">
+        <button class="btn btn-secondary dropdown-toggle" :class="toggleClass" @click="toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
           Dropdown button
         </button>
       </template>
-      <template v-slot:menu>
-        <li><a class="dropdown-item" href="#">Action</a></li>
-        <li><a class="dropdown-item" href="#">Another action</a></li>
-        <li><a class="dropdown-item" href="#">Something else here</a></li>
+      <template v-slot:menu="{ toggle }">
+        <li><a class="dropdown-item" href="#" @click.prevent="toggle">Action</a></li>
+        <li><a class="dropdown-item" href="#" @click.prevent="toggle">Another action</a></li>
+        <li><a class="dropdown-item" href="#" @click.prevent="toggle">Something else here</a></li>
       </template>
     </Dropdown>
   </div>

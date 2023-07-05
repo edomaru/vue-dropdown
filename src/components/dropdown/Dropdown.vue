@@ -1,8 +1,8 @@
 <template>
     <div class="dropdown">
-      <slot name="trigger" />
-      <ul class="dropdown-menu show" :style="menuStyles">
-        <slot name="menu" />
+      <slot name="trigger" :toggleClass="toggleClass" :toggle="toggle" />
+      <ul class="dropdown-menu" :class="toggleClass" :style="menuStyles">
+        <slot name="menu" :toggle="toggle" />
       </ul>
     </div>
 </template>
@@ -17,6 +17,17 @@ export default {
                 margin: '0px',
                 transform: 'translate(0px, 40px)'
             }
+        },
+        toggleClass () {
+            return this.isOpen ? 'show' : ''
+        }
+    },
+    data: () => ({
+        isOpen: false
+    }),
+    methods: {
+        toggle () {
+            this.isOpen = !this.isOpen
         }
     }
 }
