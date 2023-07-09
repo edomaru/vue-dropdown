@@ -1,5 +1,5 @@
 <template>
-    <div class="dropdown">
+    <div class="dropdown" v-click-out-side="handleClickOutside">
       <slot name="trigger" :toggleClass="toggleClass" :toggle="toggle" />
       <ul class="dropdown-menu" :class="toggleClass" :style="menuStyles">
         <slot name="menu" :toggle="toggle" />
@@ -8,7 +8,12 @@
 </template>
 
 <script>
+import clickOutSide from '@mahdikhashan/vue3-click-outside'
+
 export default {
+    directives: {
+        clickOutSide
+    },
     computed: {
         menuStyles () {
             return {
@@ -28,6 +33,9 @@ export default {
     methods: {
         toggle () {
             this.isOpen = !this.isOpen
+        },
+        handleClickOutside () {
+            this.isOpen = false
         }
     }
 }
