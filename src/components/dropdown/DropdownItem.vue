@@ -5,8 +5,8 @@
         </a>
     </li>
 </template>
-<script>
-export default {
+<script setup>
+defineOptions({
     inheritAttrs: false
-}
+})
 </script>

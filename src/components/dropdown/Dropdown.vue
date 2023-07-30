@@ -6,37 +6,30 @@
       </ul>
     </div>
 </template>
+<script setup>
+import { computed, ref } from 'vue';
+import { clickOutSide as vClickOutSide } from '@mahdikhashan/vue3-click-outside'
 
-<script>
-import clickOutSide from '@mahdikhashan/vue3-click-outside'
+const isOpen = ref(false)
 
-export default {
-    directives: {
-        clickOutSide
-    },
-    computed: {
-        menuStyles () {
-            return {
-                position: 'absolute', 
-                inset: '0px auto auto 0px',
-                margin: '0px',
-                transform: 'translate(0px, 40px)'
-            }
-        },
-        toggleClass () {
-            return this.isOpen ? 'show' : ''
-        }
-    },
-    data: () => ({
-        isOpen: false
-    }),
-    methods: {
-        toggle () {
-            this.isOpen = !this.isOpen
-        },
-        handleClickOutside () {
-            this.isOpen = false
-        }
-    }
+const toggle = () => {
+    isOpen.value = !isOpen.value
 }
+
+const handleClickOutside = () => {
+    isOpen.value = false
+}
+
+const menuStyles = computed(() => {
+    return {
+        position: 'absolute', 
+        inset: '0px auto auto 0px',
+        margin: '0px',
+        transform: 'translate(0px, 40px)'
+    }
+})
+
+const toggleClass = computed(() => {
+    return isOpen.value ? 'show' : ''
+})
 </script>

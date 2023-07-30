@@ -1,11 +1,7 @@
-<script>
+<script setup>
 import Dropdown from './components/dropdown/Dropdown.vue';
 import DropdownItem from './components/dropdown/DropdownItem.vue';
 import DropdownTrigger from './components/dropdown/DropdownTrigger.vue';
-
-export default {
-  components: { Dropdown, DropdownItem, DropdownTrigger }
-}
 </script>
 
 <template>

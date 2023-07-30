@@ -3,16 +3,14 @@
         <slot />
     </component>
 </template>
-<script>
-export default {
-    props: {
-        tag: {
-            type: String,
-            default: 'button',
-            validator: function (value) {
-                return ['button', 'a'].includes(value)
-            }
+<script setup>
+defineProps({
+    tag: {
+        type: String,
+        default: 'button',
+        validator: function (value) {
+            return ['button', 'a'].includes(value)
         }
     }
-}
+})
 </script>
